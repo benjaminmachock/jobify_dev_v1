@@ -1,0 +1,15 @@
+{
+  "name": "jobify_dev_v1",
+  "version": "1.0.0",
+  "description": "application to research and post jobs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "job search",
+    "jobs"
+  ],
+  "author": "Benjamin Machock",
+  "license": "ISC"
+}
