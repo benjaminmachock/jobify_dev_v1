@@ -1,3 +1,4 @@
 import Job from "./Job.js";
+import User from "./User.js";
 
-export { Job };
+export { Job, User };
