@@ -14,6 +14,10 @@ const resolvers = {
       const job = await Job.create({ title, description, pay });
       return job;
     },
+    removeJob: async (parent, { _id }) => {
+      const job = await Job.deleteOne({ _id });
+      return job;
+    },
   },
 };
 

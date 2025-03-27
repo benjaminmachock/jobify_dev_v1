@@ -8,9 +8,11 @@ const typeDefs = gql`
 
   type Mutation {
     createJob(title: String!, description: String!, pay: String!): Job
+    removeJob(_id: String!): Job
   }
 
   type Job {
+    _id: ID!
     title: String
     description: String
     pay: String
