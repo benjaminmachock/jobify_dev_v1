@@ -9,6 +9,12 @@ const resolvers = {
       return jobs;
     },
   },
+  Mutation: {
+    createJob: async (parent, { title, description, pay }) => {
+      const job = await Job.create({ title, description, pay });
+      return job;
+    },
+  },
 };
 
 export default resolvers;

@@ -6,6 +6,10 @@ const typeDefs = gql`
     jobs: [Job]
   }
 
+  type Mutation {
+    createJob(title: String!, description: String!, pay: String!): Job
+  }
+
   type Job {
     title: String
     description: String
