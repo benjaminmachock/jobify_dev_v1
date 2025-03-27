@@ -1,6 +1,8 @@
 import express from "express";
 import { ApolloServer } from "@apollo/server";
+import { expressMiddleware } from "@apollo/server/express4";
 import db from "./config/connection.js";
+import { typeDefs, resolvers } from "./schemas/index.js";
 
 const PORT = 8080;
 const server = new ApolloServer({ typeDefs, resolvers });
