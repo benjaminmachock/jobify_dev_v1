@@ -18,6 +18,14 @@ const resolvers = {
       const job = await Job.deleteOne({ _id });
       return job;
     },
+    updateJob: async (parent, { _id, title, description, pay }) => {
+      const job = await Job.findOneAndUpdate(
+        { _id, title, pay, description },
+        { new: true }
+      );
+      // console.log(job);
+      return job;
+    },
   },
 };
 
