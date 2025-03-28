@@ -4,6 +4,7 @@ import gql from "graphql-tag";
 const typeDefs = gql`
   type Query {
     jobs: [Job]
+    users: [User]
   }
 
   type Mutation {
@@ -15,6 +16,14 @@ const typeDefs = gql`
       description: String!
       pay: String!
     ): Job
+  }
+
+  type User {
+    username: String
+    email: String
+    password: String
+    role: String
+    favoriteJobs: [Job]
   }
 
   type Job {
