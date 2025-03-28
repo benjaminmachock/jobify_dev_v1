@@ -34,7 +34,8 @@ const resolvers = {
     },
     updateJob: async (parent, { _id, title, description, pay }) => {
       const job = await Job.findOneAndUpdate(
-        { _id, title, pay, description },
+        { _id },
+        { title, pay, description },
         { new: true }
       );
       // console.log(job);
@@ -42,6 +43,17 @@ const resolvers = {
     },
     createCompany: async (parent, { name, address, phone, owner }) => {
       const company = await Company.create({ name, address, phone, owner });
+      return company;
+    },
+    updateCompany: async (parent, { _id, name, address, phone, owner }) => {
+      const company = await Company.findOneAndUpdate(
+        { _id },
+        { name, address, phone, owner },
+        { new: true }
+      );
+
+      console.log(company);
+
       return company;
     },
     removeCompany: async (parent, { _id }) => {

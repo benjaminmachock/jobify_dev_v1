@@ -24,6 +24,13 @@ const typeDefs = gql`
       phone: String!
       owner: String!
     ): Company
+    updateCompany(
+      _id: String!
+      name: String!
+      address: String!
+      phone: String!
+      owner: String!
+    ): Company
     removeCompany(_id: String!): Company
   }
 
