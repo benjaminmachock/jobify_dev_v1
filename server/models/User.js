@@ -17,6 +17,17 @@ const userSchema = new Schema({
     required: true,
     minlength: 10,
   },
+  role: {
+    type: String,
+    enum: ["admin", "user"],
+    default: "user",
+  },
+  favoriteJobs: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Job",
+    },
+  ],
 });
 
 const User = model("User", userSchema);

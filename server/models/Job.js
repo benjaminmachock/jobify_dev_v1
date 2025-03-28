@@ -13,6 +13,14 @@ const jobSchema = new Schema({
     type: String,
     required: true,
   },
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+  },
+  company: {
+    type: Schema.Types.ObjectId,
+    ref: "Company",
+  },
 });
 
 const Job = model("Job", jobSchema);
