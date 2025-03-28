@@ -8,6 +8,13 @@ const resolvers = {
 
       return users;
     },
+
+    job: async (parent, { _id }) => {
+      const job = await Job.findById(_id);
+      console.log(job);
+
+      return job;
+    },
     jobs: async () => {
       const jobs = await Job.find().populate(["category", "company"]);
 

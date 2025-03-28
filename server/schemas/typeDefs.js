@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 
 const typeDefs = gql`
   type Query {
+    job(_id: String!): Job
     jobs: [Job]
     users: [User]
     categories: [Category]
