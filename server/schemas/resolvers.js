@@ -3,6 +3,11 @@ import { Category, Job, User, Company } from "../models/index.js";
 
 const resolvers = {
   Query: {
+    user: async (parent, { _id }) => {
+      const user = await User.findById(_id);
+
+      return user;
+    },
     users: async () => {
       const users = await User.find().populate();
 
@@ -20,9 +25,19 @@ const resolvers = {
 
       return jobs;
     },
+    company: async (parent, { _id }) => {
+      const company = await Company.findById(_id);
+
+      return company;
+    },
     companies: async () => {
       const companies = await Company.find();
       return companies;
+    },
+    category: async (parent, { _id }) => {
+      const category = await Category.findById(_id);
+
+      return category;
     },
     categories: async () => {
       const categories = await Category.find();

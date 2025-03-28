@@ -5,8 +5,11 @@ const typeDefs = gql`
   type Query {
     job(_id: String!): Job
     jobs: [Job]
+    user(_id: String!): User
     users: [User]
+    category(_id: String!): Category
     categories: [Category]
+    company(_id: String!): Company
     companies: [Company]
   }
 
