@@ -22,6 +22,19 @@ const typeDefs = gql`
     title: String
     description: String
     pay: String
+    category: Category
+    company: Company
+  }
+
+  type Category {
+    name: String
+  }
+
+  type Company {
+    name: String
+    address: String
+    phone: String
+    owner: String
   }
 `;
 

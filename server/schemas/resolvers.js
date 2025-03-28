@@ -4,7 +4,7 @@ import { Job } from "../models/index.js";
 const resolvers = {
   Query: {
     jobs: async () => {
-      const jobs = await Job.find();
+      const jobs = await Job.find().populate(["category", "company"]);
 
       return jobs;
     },
