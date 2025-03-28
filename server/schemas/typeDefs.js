@@ -18,6 +18,12 @@ const typeDefs = gql`
       description: String!
       pay: String!
     ): Job
+    createCompany(
+      name: String!
+      address: String!
+      phone: String!
+      owner: String!
+    ): Company
   }
 
   type User {

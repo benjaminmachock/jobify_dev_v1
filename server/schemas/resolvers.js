@@ -40,6 +40,10 @@ const resolvers = {
       // console.log(job);
       return job;
     },
+    createCompany: async (parent, { name, address, phone, owner }) => {
+      const company = await Company.create({ name, address, phone, owner });
+      return company;
+    },
   },
 };
 
