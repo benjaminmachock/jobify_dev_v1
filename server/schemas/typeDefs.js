@@ -24,6 +24,7 @@ const typeDefs = gql`
       phone: String!
       owner: String!
     ): Company
+    removeCompany(_id: String!): Company
   }
 
   type User {

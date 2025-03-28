@@ -44,6 +44,10 @@ const resolvers = {
       const company = await Company.create({ name, address, phone, owner });
       return company;
     },
+    removeCompany: async (parent, { _id }) => {
+      const company = await Company.deleteOne({ _id });
+      return company;
+    },
   },
 };
 
