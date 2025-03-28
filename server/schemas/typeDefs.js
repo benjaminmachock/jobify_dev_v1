@@ -6,6 +6,7 @@ const typeDefs = gql`
     jobs: [Job]
     users: [User]
     categories: [Category]
+    companies: [Company]
   }
 
   type Mutation {

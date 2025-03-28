@@ -1,5 +1,5 @@
 //resolver functions to query data utlizing Mongoose Models
-import { Category, Job, User } from "../models/index.js";
+import { Category, Job, User, Company } from "../models/index.js";
 
 const resolvers = {
   Query: {
@@ -12,6 +12,10 @@ const resolvers = {
       const jobs = await Job.find().populate(["category", "company"]);
 
       return jobs;
+    },
+    companies: async () => {
+      const companies = await Company.find();
+      return companies;
     },
     categories: async () => {
       const categories = await Category.find();
