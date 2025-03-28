@@ -5,6 +5,7 @@ const typeDefs = gql`
   type Query {
     jobs: [Job]
     users: [User]
+    categories: [Category]
   }
 
   type Mutation {
