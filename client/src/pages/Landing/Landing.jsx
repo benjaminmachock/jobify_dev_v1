@@ -1,4 +1,5 @@
 //Imports
+import "./landing.css";
 
 export const Landing = () => {
   //Hooks
@@ -7,7 +8,20 @@ export const Landing = () => {
 
   return (
     <>
-      <h1>Landing Page for SignUp/Login</h1>
+      <div className="landing-container">
+        <div className="login-card">
+          <h2 className="form-title">Login</h2>
+          <form className="form-container">
+            <div className="input-form">
+              <input name="userEmail" placeholder="Email" />
+            </div>
+            <div className="input-form">
+              <input name="userPassword" placeholder="Password" />
+            </div>
+            <button>Submit</button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };
