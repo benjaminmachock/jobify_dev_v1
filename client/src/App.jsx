@@ -5,7 +5,7 @@ import { Nav } from "./components/Nav/Nav.jsx";
 import { Footer } from "./components/Footer/Footer.jsx";
 
 const client = new ApolloClient({
-  uri: "/graphql",
+  uri: "graphql",
   cache: new InMemoryCache(),
 });
 

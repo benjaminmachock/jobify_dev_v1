@@ -1,8 +1,9 @@
 //Imports
-import "./card.css";
+import "./jobcard.css";
 
-export const Card = () => {
+export const JobCard = (props) => {
   //Hooks
+  console.log(props);
 
   //Functions
 
@@ -18,6 +19,8 @@ export const Card = () => {
             Consectetur sunt ea voluptas fugit minus impedit.
           </p>
           <button className="card-btn">Apply</button>
+          <button className="card-btn">Update</button>
+          <button className="card-btn">Delete</button>
         </div>
         <div className="card">
           <h3>Job2</h3>
