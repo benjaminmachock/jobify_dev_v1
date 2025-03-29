@@ -8,7 +8,8 @@ export const Footer = () => {
 
   return (
     <div className="footer">
-      <h1>Footer</h1>
+      <h2>Jobify</h2>
+      <p>@MachoMan Coding 2025</p>
     </div>
   );
 };
