@@ -4,12 +4,16 @@
   "description": "application to research and post jobs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node server/server.js",
+    "client": "cd client && npm run dev"
   },
   "keywords": [
     "job search",
     "jobs"
   ],
   "author": "Benjamin Machock",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
 }
