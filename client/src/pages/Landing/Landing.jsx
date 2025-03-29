@@ -18,7 +18,7 @@ export const Landing = () => {
             <div className="input-form">
               <input name="userPassword" placeholder="Password" />
             </div>
-            <button>Submit</button>
+            <button className="landing-btn">Submit</button>
           </form>
         </div>
       </div>

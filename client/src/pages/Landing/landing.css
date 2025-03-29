@@ -21,7 +21,7 @@
   text-align: center;
 }
 
-button {
+.landing-btn {
   background-color: rgb(16, 95, 174);
   margin: 0 auto;
   margin-top: 10px;
@@ -29,6 +29,7 @@ button {
   width: 100%;
   border-radius: 5px;
   font-size: 24px;
+  color: white;
 }
 
 .input-form {
