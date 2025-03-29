@@ -1,0 +1,26 @@
+/* flex container for product cards */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid black;
+  min-height: 100vh;
+  margin: 30px;
+}
+
+.jobs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  gap: 30px;
+  flex: 1;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  width: 150px;
+  text-align: center;
+}

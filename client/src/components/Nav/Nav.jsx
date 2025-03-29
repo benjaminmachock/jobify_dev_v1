@@ -1,4 +1,5 @@
 //Imports
+import "./nav.css";
 
 export const Nav = () => {
   //Hooks
@@ -6,8 +7,8 @@ export const Nav = () => {
   //Functions
 
   return (
-    <>
-      <h1>Navbar</h1>
-    </>
+    <div className="nav">
+      <h1>Jobify</h1>
+    </div>
   );
 };

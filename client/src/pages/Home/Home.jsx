@@ -1,5 +1,6 @@
 //Imports
 import { Card } from "../../components/Card/Card";
+import "./home.css";
 
 export const Home = () => {
   //Hooks
@@ -7,9 +8,8 @@ export const Home = () => {
   //Functions
 
   return (
-    <>
-      <h1>Jobify</h1>
+    <div className="home">
       <Card />
-    </>
+    </div>
   );
 };
