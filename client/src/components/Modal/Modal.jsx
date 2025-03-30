@@ -1,13 +1,25 @@
-//Imports
+import React, { useState } from "react";
+import "./Modal.css"; // Ensure you have a CSS file for styling
 
-export const Modal = () => {
-  //Hooks
+export const Modal = ({ isOpen, onClose, children }) => {
+  if (!isOpen) {
+    return null;
+  }
 
-  //Functions
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal-overlay")) {
+      onClose();
+    }
+  };
 
   return (
-    <>
-      <h1>Modal</h1>
-    </>
+    <div className="modal-overlay" onClick={handleOverlayClick}>
+      <div className="modal-content">
+        {children}
+        <button className="modal-close-button" onClick={onClose}>
+          Close
+        </button>
+      </div>
+    </div>
   );
 };
