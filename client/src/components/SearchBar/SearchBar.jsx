@@ -1,5 +1,7 @@
 //Imports
 
+//component for search bar
+
 export const SearchBar = () => {
   //Hooks
 
