@@ -8,7 +8,8 @@
     "client": "cd client && npm run dev",
     "develop": "concurrently \"cd server && npm run server \" \"cd client && npm run dev\"",
     "start": "cd server && node server.js",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "render-build": "npm install && npm run build"
   },
   "keywords": [
     "job search",
