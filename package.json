@@ -4,8 +4,9 @@
   "description": "application to research and post jobs",
   "main": "index.js",
   "scripts": {
-    "server": "node server/server.js",
-    "client": "cd client && npm run dev"
+    "server": "node server.js",
+    "client": "cd client && npm run dev",
+    "develop": "concurrently \"cd server && npm run server \" \"cd client && npm run dev\""
   },
   "keywords": [
     "job search",
