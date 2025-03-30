@@ -17,8 +17,9 @@ export const JobCard = ({ jobs }) => {
             <p>{job.description}</p>
             <h3>{job.pay}</h3>
             <button className="card-btn">Apply</button>
-            <button className="card-btn">Update</button>
-            <button className="card-btn">Delete</button>
+            <button className="card-btn">Add Job</button>
+            <button className="card-btn">Update Job</button>
+            <button className="card-btn">Delete Job</button>
           </div>
         ))}
       </section>
