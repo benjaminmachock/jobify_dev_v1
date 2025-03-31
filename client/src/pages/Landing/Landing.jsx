@@ -1,6 +1,7 @@
 //Imports
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import { LOGIN } from "../../utils/mutations";
 import "./landing.css";
 
@@ -8,6 +9,8 @@ import "./landing.css";
 
 export const Landing = () => {
   //Hooks
+
+  const navigate = useNavigate();
 
   const [userLoginData, setUserLoginData] = useState({
     username: "",
@@ -37,6 +40,7 @@ export const Landing = () => {
       });
 
       console.log(response.data.login.token);
+      navigate("/home");
     } catch (err) {
       console.error(err);
     }
