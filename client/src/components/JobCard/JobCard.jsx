@@ -1,28 +1,55 @@
 //Imports
+import { useState } from "react";
 import "./jobcard.css";
+import { Modal } from "../Modal/Modal.jsx";
 
-export const JobCard = ({ jobs }) => {
+export const JobCard = ({ data }) => {
+  console.log(data);
   //Hooks
 
-  //Functions
-  console.log(jobs);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formType, setFormType] = useState("");
+
+  const handleOpenModal = (type) => {
+    setFormType(type);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setFormType("");
+  };
 
   return (
-    <div className="card-container">
-      <h3>Job Postings</h3>
-      <section className="jobs">
-        {jobs.map((job) => (
-          <div className="card" key={job._id}>
-            <h1>{job.title}</h1>
-            <p>{job.description}</p>
-            <h3>{job.pay}</h3>
-            <button className="card-btn">Apply</button>
-            <button className="card-btn">Add Job</button>
-            <button className="card-btn">Update Job</button>
-            <button className="card-btn">Delete Job</button>
-          </div>
-        ))}
-      </section>
-    </div>
+    <>
+      <h2>{data.title}</h2>
+      <p>{data.description}</p>
+      <h3>{data.pay}</h3>
+      <div>
+        <button
+          className="card-btn"
+          onClick={() => handleOpenModal("jobApply")}
+        >
+          Apply
+        </button>
+        <button
+          className="card-btn"
+          onClick={() => handleOpenModal("jobUpdate")}
+        >
+          Update Job
+        </button>
+        <button
+          className="card-btn"
+          onClick={() => handleOpenModal("jobRemoval")}
+        >
+          Remove Job
+        </button>
+      </div>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        formType={formType}
+      />
+    </>
   );
 };

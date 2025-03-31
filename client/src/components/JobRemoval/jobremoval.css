@@ -1,0 +1,19 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container h1 {
+  margin-top: 20px;
+}
+
+.jobRemoval-input-btn {
+  background-color: red;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 24px;
+  color: white;
+}

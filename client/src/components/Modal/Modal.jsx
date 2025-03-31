@@ -1,7 +1,10 @@
-import React, { useState } from "react";
 import "./modal.css";
+import { JobForm } from "../JobForm/JobForm";
+import { JobUpdateForm } from "../JobUpdateForm/JobUpdateForm";
+import { JobRemoval } from "../JobRemoval/jobRemoval";
+import { JobApply } from "../JobApply/JobApply";
 
-export const Modal = ({ isOpen, onClose, children }) => {
+export const Modal = ({ isOpen, onClose, children, formType }) => {
   if (!isOpen) {
     return null;
   }
@@ -12,10 +15,26 @@ export const Modal = ({ isOpen, onClose, children }) => {
     }
   };
 
+  const renderForm = () => {
+    switch (formType) {
+      case "jobForm":
+        return <JobForm />;
+      case "jobUpdate":
+        return <JobUpdateForm />;
+      case "jobRemoval":
+        return <JobRemoval />;
+      case "jobApply":
+        return <JobApply />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
       <div className="modal-content">
         {children}
+        {renderForm()}
         <button className="modal-close-button" onClick={onClose}>
           Close
         </button>

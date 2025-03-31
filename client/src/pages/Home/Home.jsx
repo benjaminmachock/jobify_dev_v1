@@ -1,6 +1,6 @@
 //Imports
 import { useQuery } from "@apollo/client";
-import { JobCard } from "../../components/JobCard/JobCard.jsx";
+import { JobList } from "../../components/JobList/JobList.jsx";
 import { QUERY_JOBS } from "../../utils/queries";
 import "./home.css";
 
@@ -17,7 +17,7 @@ export const Home = () => {
       {loading ? (
         <div>Currently loading data....</div>
       ) : (
-        <JobCard jobs={jobs} />
+        <JobList jobs={jobs} />
       )}
     </div>
   );
