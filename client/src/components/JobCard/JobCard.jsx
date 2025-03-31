@@ -22,6 +22,7 @@ export const JobCard = ({ data }) => {
 
   return (
     <div data-id={data._id}>
+      <img className="job-image" src={`/${data.category.image}`} />
       <h2>{data.title}</h2>
       <p>{data.description}</p>
       <h3>{data.pay}</h3>
