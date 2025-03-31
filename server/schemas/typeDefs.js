@@ -15,6 +15,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
+    login(username: String!, password: String!): Auth
     addJob(title: String!, description: String!, pay: String!): Job
     removeJob(_id: String!): Job
     updateJob(
@@ -69,6 +70,10 @@ const typeDefs = gql`
     address: String
     phone: String
     owner: String
+  }
+
+  type Auth {
+    token: String!
   }
 `;
 

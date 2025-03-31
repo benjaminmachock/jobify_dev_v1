@@ -6,27 +6,31 @@ import { typeDefs, resolvers } from "./schemas/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
-import { JWT_SECRET } from "./config/config.js";
+import "dotenv/config";
+import jwt from "jsonwebtoken";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = 8080;
 
-const context = ({ req }) => {
+const context = ({ req, res }) => {
   const token = req.cookies.token || "";
-  try {
-    const user = jwt.verify(token, JWT_SECRET);
-    return { user };
-  } catch (error) {
-    console.log(error);
+
+  if (token) {
+    try {
+      const user = jwt.verify(token, process.env.JWT_SECRET);
+      return { user, res };
+    } catch (error) {
+      console.log(error);
+    }
   }
+  return { res };
 };
 
 const app = express();
-app.use(cookieParser());
 
-const server = new ApolloServer({ typeDefs, resolvers, context });
+const server = new ApolloServer({ typeDefs, resolvers });
 
 const runApolloServer = async () => {
   await server.start();
@@ -34,8 +38,9 @@ const runApolloServer = async () => {
 
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
+  app.use(cookieParser());
 
-  app.use("/graphql", expressMiddleware(server));
+  app.use("/graphql", expressMiddleware(server, { context }));
 
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/dist")));

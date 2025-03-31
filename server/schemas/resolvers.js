@@ -1,9 +1,12 @@
 //resolver functions to query data utlizing Mongoose Models
 import { Category, Job, User, Company } from "../models/index.js";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
+      console.log(context.user);
       if (!context.user) {
         throw new Error("Not authenticated");
       }
@@ -53,6 +56,26 @@ const resolvers = {
     },
   },
   Mutation: {
+    login: async (parent, { username, password }, { res }) => {
+      const user = await User.findOne({ username: username });
+      if (user && password === "password") {
+        const token = jwt.sign(
+          { userId: user.id, role: user.role },
+          process.env.JWT_SECRET,
+          { expiresIn: "1h" }
+        );
+
+        res.cookie("token", token, {
+          httpOnly: true,
+          secure: process.env.NODE_ENV === "production",
+          sameSite: "Strict",
+          maxAge: 3600000,
+        });
+
+        return { token };
+      }
+      throw new Error("Invalid Credentials");
+    },
     addJob: async (parent, { title, description, pay }) => {
       const job = await Job.create({ title, description, pay });
       return job;
