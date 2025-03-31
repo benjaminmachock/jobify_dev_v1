@@ -5,12 +5,24 @@ import db from "./config/connection.js";
 import { typeDefs, resolvers } from "./schemas/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
+import jwt from "jsonwebtoken";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = 8080;
-const server = new ApolloServer({ typeDefs, resolvers });
+
+const context = ({ req }) => {
+  const token = req.cookies.token || "";
+  try {
+    const user = jwt.verify(token, "kdfjdlf");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const server = new ApolloServer({ typeDefs, resolvers, context });
 
 const app = express();
 
