@@ -7,6 +7,9 @@ const categorySchema = new Schema({
     unique: true,
     trim: true,
   },
+  image: {
+    type: String,
+  },
 });
 
 const Category = model("Category", categorySchema);

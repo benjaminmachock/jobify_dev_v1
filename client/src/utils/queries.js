@@ -7,6 +7,10 @@ export const QUERY_JOBS = gql`
       title
       description
       pay
+      category {
+        name
+        image
+      }
     }
   }
 `;

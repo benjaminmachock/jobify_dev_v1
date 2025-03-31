@@ -59,6 +59,7 @@ const typeDefs = gql`
   type Category {
     _id: ID!
     name: String
+    image: String
   }
 
   type Company {
