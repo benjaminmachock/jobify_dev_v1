@@ -34,13 +34,13 @@ export const JobCard = ({ data }) => {
           Apply
         </button>
         <button
-          className="card-btn"
+          className="card-btn-admin"
           onClick={() => handleOpenModal("jobUpdate")}
         >
           Update Job
         </button>
         <button
-          className="card-btn"
+          className="card-btn-admin"
           onClick={() => handleOpenModal("jobRemoval")}
         >
           Remove Job

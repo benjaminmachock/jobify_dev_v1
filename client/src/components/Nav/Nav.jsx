@@ -22,7 +22,7 @@ export const Nav = () => {
     <div className="nav">
       <h1>Jobify</h1>
       <button className="nav-btn" onClick={() => handleOpenModal("jobForm")}>
-        Post Job
+        Add Job
       </button>
       <Modal
         isOpen={isModalOpen}
