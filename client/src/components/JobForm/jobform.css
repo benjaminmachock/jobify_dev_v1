@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.form-container h1 {
+  color: black;
+}
+
 .job-input-form {
   margin-bottom: 15px;
   text-align: left;
