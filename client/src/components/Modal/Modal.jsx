@@ -1,7 +1,6 @@
 import "./modal.css";
 import { JobForm } from "../JobForm/JobForm";
 import { JobUpdateForm } from "../JobUpdateForm/JobUpdateForm";
-import { JobRemoval } from "../JobRemoval/jobRemoval";
 import { JobApply } from "../JobApply/JobApply";
 
 export const Modal = ({ isOpen, onClose, children, formType }) => {
@@ -21,8 +20,6 @@ export const Modal = ({ isOpen, onClose, children, formType }) => {
         return <JobForm />;
       case "jobUpdate":
         return <JobUpdateForm />;
-      case "jobRemoval":
-        return <JobRemoval />;
       case "jobApply":
         return <JobApply />;
       default:
