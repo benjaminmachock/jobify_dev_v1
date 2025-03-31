@@ -3,6 +3,13 @@ import { Category, Job, User, Company } from "../models/index.js";
 
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      if (!context.user) {
+        throw new Error("Not authenticated");
+      }
+
+      return context.user;
+    },
     user: async (parent, { _id }) => {
       const user = await User.findById(_id);
 

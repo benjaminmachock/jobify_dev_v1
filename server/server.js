@@ -6,29 +6,29 @@ import { typeDefs, resolvers } from "./schemas/index.js";
 import path from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
-import { JWT_SECRET, COOKIE } from "./config/config.js";
+import { JWT_SECRET } from "./config/config.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PORT = 8080;
 
-const app = express();
-app.use(cookieParser);
-
 const context = ({ req }) => {
   const token = req.cookies.token || "";
   try {
     const user = jwt.verify(token, JWT_SECRET);
-    return user;
+    return { user };
   } catch (error) {
     console.log(error);
   }
 };
 
+const app = express();
+app.use(cookieParser());
+
 const server = new ApolloServer({ typeDefs, resolvers, context });
 
-const runApolloSerever = async () => {
+const runApolloServer = async () => {
   await server.start();
   await db;
 
@@ -51,4 +51,4 @@ const runApolloSerever = async () => {
   });
 };
 
-runApolloSerever();
+runApolloServer();
