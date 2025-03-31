@@ -14,7 +14,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createJob(title: String!, description: String!, pay: String!): Job
+    addJob(title: String!, description: String!, pay: String!): Job
     removeJob(_id: String!): Job
     updateJob(
       _id: String!

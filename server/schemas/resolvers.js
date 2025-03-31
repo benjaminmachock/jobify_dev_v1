@@ -46,7 +46,7 @@ const resolvers = {
     },
   },
   Mutation: {
-    createJob: async (parent, { title, description, pay }) => {
+    addJob: async (parent, { title, description, pay }) => {
       const job = await Job.create({ title, description, pay });
       return job;
     },
