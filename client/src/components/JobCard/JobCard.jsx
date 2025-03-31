@@ -21,7 +21,7 @@ export const JobCard = ({ data }) => {
   };
 
   return (
-    <>
+    <div data-id={data._id}>
       <h2>{data.title}</h2>
       <p>{data.description}</p>
       <h3>{data.pay}</h3>
@@ -50,6 +50,6 @@ export const JobCard = ({ data }) => {
         onClose={handleCloseModal}
         formType={formType}
       />
-    </>
+    </div>
   );
 };
