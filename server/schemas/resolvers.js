@@ -3,6 +3,8 @@ import { Category, Job, User, Company } from "../models/index.js";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 
+//TODO - integrate bcrypt to encrypt passwords after initial testing of auth
+
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
